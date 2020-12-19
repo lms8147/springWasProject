@@ -1,0 +1,36 @@
+// buildscript 세팅
+buildscript {
+    // Global 환경 변수 세팅
+    ext {
+
+    }
+    //
+    repositories {
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+}
+
+// plugins 세팅
+plugins {
+
+}
+
+group = 'com.mysample'
+version = '0.0.1-SNAPSHOT'
+description = 'Spring Was Project'
+
+// repositories 세팅
+repositories {
+    mavenLocal()
+    maven {
+        url = uri('https://repo.maven.apache.org/maven2/')
+    }
+}
+
+// dependencies 세팅
+dependencies {
+
+}
