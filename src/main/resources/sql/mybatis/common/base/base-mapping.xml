@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mysample.common.base">
+	<resultMap type="person" id="personMap">
+		<result property="name" column="NAME" />
+		<result property="age" column="AGE" />
+	</resultMap>
+
+	<select id="getPersonList" resultMap="personMap">
+		<![CDATA[
+		SELECT *
+		FROM PERSON
+		]]>
+	</select>
+
+	<insert id="insertPerson" parameterType="person">
+		<![CDATA[ 
+		INSERT INTO
+		PERSON(
+			NAME,
+			AGE
+		)
+		VALUES(
+			#{name},
+			#{age}
+		)
+		]]>
+	</insert>
+
+	<delete id="deletePersonAll">
+		<![CDATA[
+		DELETE FROM PERSON
+		]]>
+	</delete>
+</mapper>
+
+
+
+
