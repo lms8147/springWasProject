@@ -41,3 +41,8 @@ repositories {
 dependencies {
 
 }
+
+// test 세팅
+test {
+    useJUnitPlatform()
+}
