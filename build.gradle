@@ -2,7 +2,7 @@
 buildscript {
     // Global 환경 변수 세팅
     ext {
-
+        springVersion = "5.2.12.RELEASE"
     }
     //
     repositories {
@@ -39,6 +39,62 @@ repositories {
 
 // dependencies 세팅
 dependencies {
+
+    /**
+     * BackEnd Dependencies Setting
+     */
+
+    // javax inject annotation
+    implementation group: 'javax.inject', name: 'javax.inject', version: '1'
+
+    // spring web
+    implementation group: 'org.springframework', name: 'spring-context', version: "${springVersion}"
+    implementation group: 'org.springframework', name: 'spring-webmvc', version: "${springVersion}"
+
+    // spring aop, spring aspect
+    implementation group: 'org.springframework', name: 'spring-aspects', version: "${springVersion}"
+    implementation group: 'org.springframework', name: 'spring-aop', version: "${springVersion}"
+
+    // spring jdbc(jdbc, inmemory db), spring transaction
+    implementation group: 'org.springframework', name: 'spring-tx', version: "${springVersion}"
+    implementation group: 'org.springframework', name: 'spring-jdbc', version: "${springVersion}"
+
+    // aspect
+    implementation group: 'org.aspectj', name: 'aspectjrt', version: '1.9.6'
+    implementation group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.6'
+    implementation group: 'org.aspectj', name: 'aspectjtools', version: '1.9.6'
+
+    // mybatis, spring mybatis
+    implementation group: 'org.mybatis', name: 'mybatis', version: '3.5.6'
+    implementation group: 'org.mybatis', name: 'mybatis-spring', version: '2.0.6'
+
+    // h2database binary(jdbc, server...)
+    implementation group: 'com.h2database', name: 'h2', version: '1.4.200'
+
+    // logback(logger), logger api(slf4j)
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
+    implementation group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
+    implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+
+
+    /**
+     * FrontEnd Dependencies Setting
+     */
+
+    // jquery
+    implementation group: 'org.webjars', name: 'jquery', version: '3.2.1'
+
+
+    /**
+     * Compile Only Dependencies Setting
+     */
+
+    // jstl, servlet
+    compileOnly group: 'javax.servlet', name: 'jstl', version: '1.2'
+    compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
+
+    // lombok
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.16'
 
 }
 
