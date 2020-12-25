@@ -32,4 +32,13 @@
         <appender-ref ref="consoleAppender"/>
     </logger>
 
+    <logger name="org.springframework.jdbc.core" level="DEBUG" additivity="false">
+        <appender-ref ref="consoleAppender"/>
+    </logger>
+
+    <logger name="jdbc.sqltiming" level="DEBUG">
+        <appender-ref ref="consoleAppender"/>
+    </logger>
+
+
 </configuration>
