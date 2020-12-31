@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<body th:fragment="f_body" class="text-center">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header th:replace="sample/thymeleaf/divide/fragments/f_body_header :: f_body_header">
+    </header>
+
+    <main role="main" class="inner cover">
+        <th:block layout:fragment="content_body"></th:block>
+    </main>
+
+    <footer th:replace="sample/thymeleaf/divide/fragments/f_body_footer :: f_body_footer">
+    </footer>
+</div>
+</body>
+</html>
