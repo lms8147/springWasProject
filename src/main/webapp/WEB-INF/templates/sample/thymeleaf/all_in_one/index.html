@@ -16,28 +16,33 @@
     <!--    <meta name="theme-color" content="#563d7c">-->
     <link th:href="@{/css/style.css}" rel="stylesheet">
 
-    <title>Hello, world!</title>
+    <title th:text="#{view.sample.main.window.title}"></title>
 </head>
 <body class="text-center">
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <header class="masthead mb-auto">
         <div class="inner">
-            <h3 class="masthead-brand">Sample</h3>
+            <h3 class="masthead-brand"
+                th:text="#{view.sample.main.page.title}"></h3>
             <nav class="nav nav-masthead justify-content-center">
-                <a class="nav-link active" href="#">Home</a>
-                <a class="nav-link" href="#">Action Item</a>
-                <a class="nav-link" href="#">Messenger</a>
-                <a class="nav-link" href="#">Admin</a>
+                <a class="nav-link active" href="#"
+                   th:text="#{view.sample.main.menu.home}"></a>
+                <a class="nav-link" href="#"
+                   th:text="#{view.sample.main.menu.action_item}"></a>
+                <a class="nav-link" href="#"
+                   th:text="#{view.sample.main.menu.messenger}"></a>
+                <a class="nav-link" href="#"
+                   th:text="#{view.sample.main.menu.admin}"></a>
             </nav>
         </div>
     </header>
 
     <main role="main" class="inner cover">
         <h1 class="cover-heading">Sample page.</h1>
-        <p class="lead">This page is sample page for developer.</p>
+        <p class="lead" th:text="#{view.sample.main.text.page_description}"></p>
         <p class="lead">
-            <a href="https://github.com/lms8147/springWasProject.git" class="btn btn-lg btn-secondary">
-                Go to Github
+            <a href="https://github.com/lms8147/springWasProject.git" class="btn btn-lg btn-secondary"
+               th:text="#{view.sample.main.button.go_to_github}">
             </a>
         </p>
     </main>

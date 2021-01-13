@@ -3,12 +3,16 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <header th:fragment="f_body_header" class="masthead mb-auto">
     <div class="inner">
-        <h3 class="masthead-brand">Sample</h3>
+        <h3 class="masthead-brand" th:text="#{view.sample.main.page.title}"></h3>
         <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href="#">Home</a>
-            <a class="nav-link" href="#">Action Item</a>
-            <a class="nav-link" href="#">Messenger</a>
-            <a class="nav-link" href="#">Admin</a>
+            <a class="nav-link active" href="#"
+               th:text="#{view.sample.main.menu.home}"></a>
+            <a class="nav-link" href="#"
+               th:text="#{view.sample.main.menu.action_item}"></a>
+            <a class="nav-link" href="#"
+               th:text="#{view.sample.main.menu.messenger}"></a>
+            <a class="nav-link" href="#"
+               th:text="#{view.sample.main.menu.admin}"></a>
         </nav>
     </div>
 </header>
