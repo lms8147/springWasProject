@@ -2,8 +2,62 @@
 <html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <header th:fragment="f_body_header" class="masthead mb-auto">
+    <script th:inline="javascript">
+        const contextRoot = /*[[@{/}]]*/ '';
+        $(document).ready(function(){
+            let language = [[${#locale.getLanguage()}]];
+            if (language == 'en') {
+                $('#languageSelect').val('en');
+            } else if (language == 'ko') {
+                $('#languageSelect').val('ko');
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        function callApi(url, data) {
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    url: contextRoot + url,
+                    type: 'POST',
+                    data: data,
+                    success: function (data) {
+                        console.log(data)
+                        resolve(data)
+                    },
+                    error: function (error) {
+                        console.log(error)
+                        reject(error)
+                    },
+                });
+            });
+        }
+
+        function changeLanguage() {
+            let requestUrl = "thymeleaf/api/setLanguage.do";
+            var requestBody = {
+                'language': $('select[name=language]').val()
+            };
+            callApi(requestUrl, requestBody)
+                .then((data) => {
+                    window.location.reload();
+                })
+                .catch((error) => {
+
+                });
+        }
+    </script>
+
     <div class="inner">
-        <h3 class="masthead-brand" th:text="#{view.sample.main.page.title}"></h3>
+        <div class="masthead-brand">
+            <h3 th:text="#{view.sample.main.page.title}"></h3>
+            <form id="languageChangeForm" th:action="@{/thymeleaf/api/setLanguage.do}" method="post">
+                <select id="languageSelect" name="language" form="languageChangeForm" class="form-select"
+                        aria-label="language" th:onchange="'javascript:changeLanguage();'">
+                    <option value="en">en</option>
+                    <option value="ko">ko</option>
+                </select>
+            </form>
+        </div>
         <nav class="nav nav-masthead justify-content-center">
             <a class="nav-link active" href="#"
                th:text="#{view.sample.main.menu.home}"></a>
