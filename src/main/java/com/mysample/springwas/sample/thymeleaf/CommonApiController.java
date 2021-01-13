@@ -23,6 +23,9 @@ public class CommonApiController {
     @Inject
     private CommonApiUtil commonApiUtil;
 
+    @Inject
+    private HelloNasService helloNasService;
+
 
     @GetMapping("/getLanguage.do")
     public ResponseEntity<ApiResultMessage<String>> getSupportLanguages(HttpServletRequest request) {
@@ -42,6 +45,21 @@ public class CommonApiController {
         }
         localeResolver.setLocale(request, response, locale);
         return commonApiUtil.createSuccessResponseEntity();
+    }
+
+    @GetMapping("/hello/nas.do")
+    public ResponseEntity<ApiResultMessage<String>> helloNAS(HttpServletRequest request) {
+        String message = null;
+        try {
+            if (helloNasService.hello()) {
+                message = "SUCCESS";
+            } else {
+                message = "FAIL";
+            }
+        } catch (Exception e) {
+            message = "UNKNOWN";
+        }
+        return commonApiUtil.createSuccessResponseEntity(message);
     }
 
 }
